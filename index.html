@@ -182,7 +182,7 @@
                     listItem.classList.add('folder-item');
 
                     const folderName = document.createElement('span');
-                    folderName.innerHTML = <i class="fas fa-folder"></i> ${folder.name};
+                    folderName.innerHTML = `<i class="fas fa-folder"></i> ${folder.name}`;
 
                     const nestedList = document.createElement('ul');
 
@@ -191,16 +191,16 @@
                             nestedList.classList.remove('open');
                         } else {
                             if (nestedList.childElementCount === 0) {
-                                await fetchFolderContents(folder.url, nestedList, path + '/' + folder.name);
+                                await fetchFolderContents(folder.url, nestedList, `${path}/${folder.name}`);
                             }
                             nestedList.classList.add('open');
                         }
                     });
 
                     const downloadLink = document.createElement('a');
-                    downloadLink.innerHTML = <i class="fas fa-download"></i>;
-                    downloadLink.href = https://github.com/Assessments2727/Assessments/archive/refs/heads/main.zip;
-                    downloadLink.download = ${path}/${folder.name}.zip;
+                    downloadLink.innerHTML = `<i class="fas fa-download"></i>`;
+                    downloadLink.href = `https://github.com/Assessments2727/Assessments/archive/refs/heads/main.zip`;
+                    downloadLink.download = `${path}/${folder.name}.zip`;
                     downloadLink.title = "Download folder as zip";
 
                     listItem.appendChild(folderName);
@@ -220,9 +220,9 @@
             let previewUrl = '';
 
             if (url.endsWith('.pdf')) {
-                previewUrl = https://drive.google.com/viewerng/viewer?embedded=true&url=${encodedUrl};
+                previewUrl = `https://drive.google.com/viewerng/viewer?embedded=true&url=${encodedUrl}`;
             } else if (url.endsWith('.doc') || url.endsWith('.docx')) {
-                previewUrl = https://view.officeapps.live.com/op/embed.aspx?src=${encodedUrl};
+                previewUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodedUrl}`;
             } else {
                 alert('File type not supported for preview.');
                 return;
@@ -234,7 +234,7 @@
         (async function() {
             const repoOwner = 'Assessment2727';
             const repoName = 'Assessments';
-            const apiUrl = https://api.github.com/repos/${repoOwner}/${repoName}/contents;
+            const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents`;
             await fetchFolderContents(apiUrl, document.getElementById('fileList'));
         })();
     </script>
