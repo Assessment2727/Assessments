@@ -13,7 +13,7 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensures full height of viewport */
+            min-height: 100vh;
         }
 
         nav {
@@ -46,39 +46,23 @@
 
         .container {
             display: flex;
-            width: 80%; /* Adjust width as necessary */
+            width: 80%;
             margin-top: 20px;
             flex: 1;
-            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-            justify-content: center; /* Centers content horizontally */
         }
 
         .content {
-            width: 100%; /* Adjust width based on desired layout */
+            width: 60%;
             padding: 20px;
             background-color: #2f3136;
             border-radius: 8px;
-            margin-bottom: 20px; /* Space between content and preview */
         }
 
         .preview {
-            width: 100%; /* Adjust width based on desired layout */
+            width: 40%;
             padding: 20px;
             background-color: #2f3136;
             border-radius: 8px;
-        }
-
-        /* Responsive adjustments */
-        @media (min-width: 768px) {
-            .container {
-                width: 70%; /* Adjust width for tablets */
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .container {
-                width: 60%; /* Adjust width for laptops */
-            }
         }
 
         #fileList {
@@ -98,7 +82,6 @@
             border-radius: 3px;
             cursor: pointer;
             transition: background-color 0.2s ease;
-            display: block; /* Ensures links take full width */
         }
 
         .file-item a:hover, .folder-item > span:hover, .folder-item > a:hover {
@@ -199,7 +182,7 @@
                     listItem.classList.add('folder-item');
 
                     const folderName = document.createElement('span');
-                    folderName.innerHTML = `<i class="fas fa-folder"></i> ${folder.name}`;
+                    folderName.innerHTML = <i class="fas fa-folder"></i> ${folder.name};
 
                     const nestedList = document.createElement('ul');
 
@@ -215,9 +198,9 @@
                     });
 
                     const downloadLink = document.createElement('a');
-                    downloadLink.innerHTML = `<i class="fas fa-download"></i>`;
-                    downloadLink.href = `https://github.com/Assessments2727/Assessments/archive/refs/heads/main.zip`;
-                    downloadLink.download = `${path}/${folder.name}.zip`;
+                    downloadLink.innerHTML = <i class="fas fa-download"></i>;
+                    downloadLink.href = https://github.com/Assessments2727/Assessments/archive/refs/heads/main.zip;
+                    downloadLink.download = ${path}/${folder.name}.zip;
                     downloadLink.title = "Download folder as zip";
 
                     listItem.appendChild(folderName);
@@ -237,9 +220,9 @@
             let previewUrl = '';
 
             if (url.endsWith('.pdf')) {
-                previewUrl = `https://drive.google.com/viewerng/viewer?embedded=true&url=${encodedUrl}`;
+                previewUrl = https://drive.google.com/viewerng/viewer?embedded=true&url=${encodedUrl};
             } else if (url.endsWith('.doc') || url.endsWith('.docx')) {
-                previewUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodedUrl}`;
+                previewUrl = https://view.officeapps.live.com/op/embed.aspx?src=${encodedUrl};
             } else {
                 alert('File type not supported for preview.');
                 return;
@@ -251,7 +234,7 @@
         (async function() {
             const repoOwner = 'Assessment2727';
             const repoName = 'Assessments';
-            const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents`;
+            const apiUrl = https://api.github.com/repos/${repoOwner}/${repoName}/contents;
             await fetchFolderContents(apiUrl, document.getElementById('fileList'));
         })();
     </script>
