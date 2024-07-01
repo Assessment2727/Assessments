@@ -136,7 +136,7 @@
         </div>
     </div>
     <footer>
-        King Private Limited
+        <span>King Private Limited</span>
     </footer>
 
     <script>
@@ -191,7 +191,7 @@
                             nestedList.classList.remove('open');
                         } else {
                             if (nestedList.childElementCount === 0) {
-                                await fetchFolderContents(folder.url, nestedList, `${path}/${folder.name}`);
+                                await fetchFolderContents(folder.url, nestedList, path + '/' + folder.name);
                             }
                             nestedList.classList.add('open');
                         }
@@ -199,7 +199,7 @@
 
                     const downloadLink = document.createElement('a');
                     downloadLink.innerHTML = `<i class="fas fa-download"></i>`;
-                    downloadLink.href = `https://github.com/Assessments2727/Assessments/archive/refs/heads/main.zip`;
+                    downloadLink.href = 'https://github.com/Assessments2727/Assessments/archive/refs/heads/main.zip';
                     downloadLink.download = `${path}/${folder.name}.zip`;
                     downloadLink.title = "Download folder as zip";
 
