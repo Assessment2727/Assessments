@@ -13,7 +13,7 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            min-height: 100vh; /* Ensures full height of viewport */
         }
 
         nav {
@@ -46,23 +46,39 @@
 
         .container {
             display: flex;
-            width: 80%;
+            width: 80%; /* Adjust width as necessary */
             margin-top: 20px;
             flex: 1;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+            justify-content: center; /* Centers content horizontally */
         }
 
         .content {
-            width: 60%;
+            width: 100%; /* Adjust width based on desired layout */
+            padding: 20px;
+            background-color: #2f3136;
+            border-radius: 8px;
+            margin-bottom: 20px; /* Space between content and preview */
+        }
+
+        .preview {
+            width: 100%; /* Adjust width based on desired layout */
             padding: 20px;
             background-color: #2f3136;
             border-radius: 8px;
         }
 
-        .preview {
-            width: 40%;
-            padding: 20px;
-            background-color: #2f3136;
-            border-radius: 8px;
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            .container {
+                width: 70%; /* Adjust width for tablets */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                width: 60%; /* Adjust width for laptops */
+            }
         }
 
         #fileList {
@@ -82,6 +98,7 @@
             border-radius: 3px;
             cursor: pointer;
             transition: background-color 0.2s ease;
+            display: block; /* Ensures links take full width */
         }
 
         .file-item a:hover, .folder-item > span:hover, .folder-item > a:hover {
